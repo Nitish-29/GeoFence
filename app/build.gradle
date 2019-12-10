@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+
+    compileSdkVersion compiled_sdk_version
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+    defaultConfig {
+        applicationId 'com.stickmanmobile.engineroom.heatmiserneo12'
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_code
+        versionName version_name
+        testInstrumentationRunner "android.support.fragment_signin.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //please remove this line while sending build to client for testing.
+        }
+    }
+    flavorDimensions "versionCode"
+    flavorDimensions "appId"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+        QA {
+            dimension "versionCode"
+            dimension "appId"
+            buildConfigField "String", "BASE_URL", '"https://neohub.co.uk/"'
+        }
+
+        Production {
+            dimension "versionCode"
+            dimension "appId"
+            buildConfigField "String", "BASE_URL", '"https://neohub.co.uk/"'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation googlePlayDependencies.appCompat
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation googlePlayDependencies.supportV4
+    implementation googlePlayDependencies.recyclerview
+    implementation googlePlayDependencies.cardview
+    implementation googlePlayDependencies.design
+    implementation googlePlayDependencies.cardView
+
+
+    //dagger dependencies
+    implementation archCoreDependencies.runtime
+    implementation archCoreDependencies.extensions
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    implementation extraDependencies.eventBus
+
+
+    testImplementation 'junit:junit:4.12'
+
+
+
+    // Google Maps
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+
+}
+
+
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'

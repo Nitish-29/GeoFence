@@ -1,0 +1,97 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.3.0'
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://jitpack.io" }
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+ext {
+    min_sdk_version = 21
+    target_sdk_version = 28
+    compiled_sdk_version = 28
+    buildtoolVersion = '27.0.3'
+    version_code = 105
+    version_name = "4.0.2"
+    /* version_code = 1
+     version_name = "3.1.6"*/
+    app_id = 1
+    mkLoaderVersion = '1.4.0'
+    supportLibVersion = '28.0.0'
+    constraint_layout = '1.1.3'
+    glideVersion = '4.3.0'
+    coreJackson = '2.7.+'
+    daggerVersion = '2.21'
+    liveDataVersion = '1.1.1'
+    retrofitVersion = '2.3.0'
+    okhttp3Version = '3.8.0'
+    calligraphyVersion = '2.3.0'
+    ext.arch_version = '1.0.0-rc1'
+    bottobar = '2.1.0'
+    pagerSlidingStrip = '1.0.1'
+    editTextDrawable = '1.2.0'
+    graphView = 'v3.1.0-alpha'
+    roomAnnotation = '1.1.1'
+    circularTimeView = '1.2.3'
+    workmanager = "1.0.0-rc02"
+    extraDependencies = [
+            calligraphy      : "uk.co.chrisjenx:calligraphy:${calligraphyVersion}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson     : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            mkloader         : "com.tuyenmonkey:mkloader:${mkLoaderVersion}",
+            okhttp3          : "com.squareup.okhttp3:logging-interceptor:${okhttp3Version}",
+            okhttp3Url       : "com.squareup.okhttp3:okhttp-urlconnection:${okhttp3Version}",
+            coreJackson      : "com.fasterxml.jackson.core:jackson-core:${coreJackson}",
+            jacksonAnnotation: "com.fasterxml.jackson.core:jackson-annotations:${coreJackson}",
+            glide            : "com.github.bumptech.glide:glide:${glideVersion}",
+            jacksonDatabind  : "com.fasterxml.jackson.core:jackson-databind:${coreJackson}",
+            bottomNavigation : "com.aurelhubert:ahbottomnavigation:${bottobar}",
+            editTextDrawable : "com.github.MindorksOpenSource:EditDrawableText:${editTextDrawable}",
+            graphView        : "com.github.PhilJay:MPAndroidChart:${graphView}",
+            eventBus         : "org.greenrobot:eventbus:3.1.1",
+            roomDatabase     : "android.arch.persistence.room:runtime:${roomAnnotation}",
+            roomAnnotation   : "android.arch.persistence.room:compiler:${roomAnnotation}",
+            workmanager      : "android.arch.work:work-runtime:${workmanager}",
+            circularTimeView : "com.github.JungHsuan:CircularList:${circularTimeView}",
+
+    ]
+    googlePlayDependencies = [
+            supportV4            : "com.android.support:support-v4:${supportLibVersion}",
+            recyclerview         : "com.android.support:recyclerview-v7:${supportLibVersion}",
+            cardview             : "com.android.support:cardview-v7:${supportLibVersion}",
+            design               : "com.android.support:design:${supportLibVersion}",
+            appCompat            : "com.android.support:appcompat-v7:${supportLibVersion}",
+            constraint_layout    : "com.android.support.constraint:constraint-layout:${constraint_layout}",
+            cardView             : "com.android.support:cardview-v7:${supportLibVersion}",
+            percentRelativeLayout: "com.android.support:percent:${supportLibVersion}"
+    ]
+    archCoreDependencies = [
+            runtime               : "android.arch.lifecycle:runtime:${liveDataVersion}",
+            extensions            : "android.arch.lifecycle:extensions:${liveDataVersion}",
+            compiler              : "android.arch.lifecycle:compiler:${liveDataVersion}",
+            dagger                : "com.google.dagger:dagger:${daggerVersion}",
+            daggerandroid         : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerandroidsupport  : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggercompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerandroidprocessor: "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            roomDatabase          : "android.arch.persistence.room:runtime:${arch_version}"
+    ]
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.fabric.io/public' }
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

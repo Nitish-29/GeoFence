@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp70"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/triggerLeavingRadioBtn"
+                style="@style/commonTextView"
+                android:layout_weight="1"
+                android:button="@null"
+                android:paddingStart="@dimen/dp5"
+                android:text="@string/triggerleaving"
+                android:textSize="@dimen/txtSize_14" />
+
+            <RadioButton
+                android:id="@+id/triggerReturnRadioBtn"
+                style="@style/commonTextView"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:paddingEnd="@dimen/dp5"
+                android:text="@string/triggerreturn"
+                android:textAlignment="textEnd"
+                android:textSize="@dimen/txtSize_14" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5">
+
+            <TextView
+                android:id="@+id/geoLocationText"
+                style="@style/commonTextView"
+                android:layout_weight="1"
+                android:text="@string/when_leaving"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtSize_14" />
+
+            <TextView
+                android:id="@+id/selectRecipe"
+                style="@style/commonTextView"
+                android:gravity="center"
+                android:text="@string/no_recipe_selected"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtSize_14"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp10"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:shadowColor="@color/colorAccent"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp5"
+                android:alpha=".7"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/geoLocationRadiusTv"
+            style="@style/commonTextView"
+            android:layout_gravity="center"
+            android:text="@string/one_mile"
+            android:textSize="@dimen/txtSize_14" />
+
+        <SeekBar
+            android:id="@+id/seekBarGeoLocation"
+            style="@style/SeekBarWithoutSteps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="16"
+            android:theme="@style/Widget.AppCompat.SeekBar.Discrete" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:gravity="center"
+            android:text="@string/drag_the_slider_above_to_adjust_the_leaving_radius"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txtSize_12" />
+
+        <LinearLayout
+            android:id="@+id/userContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp20"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp5">
+
+            <TextView
+                style="@style/commonTextView"
+                android:layout_weight="1"
+                android:text="@string/users"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtSize_14" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/userCountTv"
+                    style="@style/commonTextView"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txtSize_14" />
+
+                <ImageView
+                    android:id="@+id/timeColonLogo"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:alpha=".7" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
